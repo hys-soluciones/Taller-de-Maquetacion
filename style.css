@@ -1,0 +1,253 @@
+/* ********** Custom Properties ********** */
+:root {
+  --first-color: #d90062;
+  --first-alpha-color: rgba(217, 0, 98, 0.75);
+  --second-color: #14192d;
+  --second-alpha-color: rgba(20, 25, 45, 0.75);
+  --third-color: #501464;
+  --third-alpha-color: rgba(80, 20, 100, 0.75);
+  --white-color: #fff;
+  --gray-light-color: #f3f3f3;
+  --gray-color: #ccc;
+  --gray-dark-color: #666;
+  --black-color: #000;
+  --link-color: #509ee3;
+  --title-color: #333;
+  --text-color: #222;
+  --white-alpha-color: rgba(255, 255, 255, 0.5);
+  --black-alpha-color: rgba(0, 0, 0, 0.5);
+  --font: "Raleway", sans-serif;
+  --max-width: 1200px;
+  --header-height: 6rem;
+}
+
+/* ********** Reset ********** */
+
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth; /* para darle el efecto de movimiento de paso de pantallaso */
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  /*  Para eliminar los margenes que trae por defecto el navegador */
+  margin: 0;
+  overflow-x: hidden; /* Para eliminar el escroll cuando de reduce la pantalla y se desborda del contenedor */
+  color: var(--text-color); /*  El color de la letra */
+}
+
+a {
+  color: var(--link-color);
+  transition: all 0.5s ease-out;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+h5 {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+h6 {
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+img {
+  /* Para hacer que las imagenes sean responsivas */
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  line-height: 1.6; /*  Este es un espaciado para las lineas de los parrafos */
+}
+/* ********** Componentes ********** */
+
+/* *************HERO_IMAGE*********** */
+.hero-image {
+  background-image: var(
+    --hero-image
+  ); /* variable declarada en el article con clase hero-image del HTML*/
+  background-repeat: no-repeat;
+  background-size: cover; /*  para que la image se adacte al tamaño del contenedor */
+  background-position: center; /* Le decimos que la imagen este centrada tanto en X como en Y */
+  background-attachment: var(
+    --hero-attachment
+  ); /* variable declarada en el article con clase hero-image del HTML, para que el scroll quede fijo*/
+}
+/* Este es el asside que tiene el color de fondo con sierta opacidad para que la img no entre en conflicto con el texto que se utiliza*/
+.hero-image-opacity {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--hero-opacity-color);
+}
+.hero-image-title {
+  font-size: 7.5vw; /* esto es para darle un tamaño responsivo al titulo dependiendo del tamaño del viwport */
+  color: var(--hero-text-color);
+}
+/* ------------MENU------------------ */
+.menu-btn {
+  outline: thin solid var(--first-color);
+  border: 0;
+  cursor: pointer;
+  background-color: var(--second-color);
+}
+.menu-btn svg {
+  fill: var(--first-color);
+}
+.menu {
+  position: fixed;
+  left: 0;
+  bottom: var(--header-height);
+  width: 100%;
+  display: flex; /* Para acomodar los elementos del menu */
+  flex-direction: column;
+  background-color: var(--second-color);
+  opacity: 0; /* Para comenzar ocultando el menu */
+  pointer-events: none; /* para que los elementos del menu no reaccionen en la opasidad a interactividad*/
+  transition: 0.5s ease; /* Aplicamos una transicion normal de 5 segundos */
+}
+/* Para activar el menu */
+.menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Estilos a los enlaces del menu */
+.menu a {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--first-color);
+}
+.menu a:hover {
+  color: var(--white-color);
+  background-color: var(--first-color);
+}
+
+@media (min-width: 1024px) {
+  .menu-btn {
+    display: none; /* Ocultamos el boton de amburger */
+  }
+  /* Volvemos el menu a su posicion static */
+  .menu {
+    position: static;
+    width: auto; /* Que el ancho se adacte al numero de enlaces que tenga */
+    flex-direction: row; /* Cambiamos la direccion de columna a fila */
+    opacity: 1; /* Le regresamos la visivilidad */
+    pointer-events: auto; /* Le regresamos la manito */
+  }
+  /* Modificamos un poco el padding de los enlaces del menu y le quitamos 1rem en lo vertical y lo dejamos en 0 mientras que en lo orizontal lodejamos como estaba con 1rem */
+  .menu a {
+    padding: 0 1rem;
+  }
+  /* Con lo siguiente corregimos un pequeño espacio que tenia el ultimo link con el orillo derecho para que quede bien alineado*/
+  .menu a:last-child {
+    padding-right: 0;
+  }
+  .menu a:hover {
+    background-color: transparent;
+  }
+}
+/* ********** Utilities ********** */
+.box-shadow-1 {
+  /* Efecto de sombra */
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
+}
+/* para el btn del hero-image */
+.btn {
+  border-radius: 0.5rem;
+  padding: 1rem; /* Para que haya sepaaracion */
+  display: inline-block; /* Para que tenga cuerpo y se le puedan dar padding laterales y trabajen en linea y en bloque y no haya problema*/
+  width: 200px;
+  font-weight: bold; /* le damos un grosor bold */
+  text-align: center; /* Centamos el texto */
+  text-decoration: none; /* Quitamos el tipico decoration de los enlaces para que simule que es un boton */
+  color: var(--white-color);
+  background-color: var(--first-color);
+}
+/* Estilos para la cabecera */
+.conteiner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
+}
+.none {
+  display: none;
+}
+/* ********** Site Styles ********** */
+
+/* Estilos para la cabecera */
+.header {
+  position: fixed;
+  /* En version movil esta en la parte de abajo por eso la alineamos */
+  left: 0;
+  bottom: 0;
+  /*  para evitar que algo se interponga y la oculte le colocamos un z-index alto */
+  z-index: 999;
+  /* Como es posicionada de manera fija le damos un ancho y alto */
+  padding: 1rem;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--second-color);
+}
+/* Selector de hijo directo */
+.header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para el logo que es un enlace */
+.logo a {
+  color: var(--first-color);
+  font-weight: bold; /* Para aplicar el puntage de negrita al texto */
+  font-size: 2rem; /* Tamaño de la letra */
+  text-decoration: none; /* le quitamos la decoracion a ese enlace */
+}
+/* ---Media Query para pantalla-- */
+@media (min-width: 768px) {
+}
+@media (min-width: 1024px) {
+  .header {
+    position: sticky; /* Para que no tape los elementos que estan por debajo de el y cuando llege a top 0 quede fijo */
+    top: 0;
+    padding: 0.5rem; /* Reducimos el padin a 0.5rem */
+    height: calc(var(--header-height)- 0.5rem);
+    /* Le restamos el 0.5rem que ledimos en el padding anterior */
+  }
+}
