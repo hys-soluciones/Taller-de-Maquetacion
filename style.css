@@ -92,7 +92,7 @@ p {
 }
 /* ********** Componentes ********** */
 
-/* *************HERO_IMAGE*********** */
+/* *****HERO_IMAGE**** */
 .hero-image {
   background-image: var(
     --hero-image
@@ -183,6 +183,35 @@ p {
     background-color: transparent;
   }
 }
+/* ***ProgressBar*** */
+progress {
+  /* le damos tamaños a las barras progress */
+  width: 100%;
+  height: 1rem;
+  background-color: var(--gray-color);
+}
+/* Les cambiamos el color a las barras */
+progress::-webkit-progress-bar {
+  background-color: var(--gray-color);
+}
+progress::-webkit-progress-value {
+  background-color: var(--gray-dark-color);
+}
+/* Para cambiar el color a las barras en mozila */
+progress::-moz-progress-bar {
+  background-color: var(--gray-dark-color);
+}
+/* Le damos estilos a las barras progress */
+.progress {
+  margin: 1rem auto;
+}
+.progress > p {
+  /* Con estas clases separamos las letras de los % uno a la der y otro ala izq */
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
 /* ********** Utilities ********** */
 .box-shadow-1 {
   /* Efecto de sombra */
@@ -206,8 +235,31 @@ p {
   margin-right: auto;
   max-width: var(--max-width);
 }
+.gray-scale {
+  filter: grayscale(1);
+}
 .none {
   display: none;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+@media (min-width: 1024px) {
+  .text-lg-center {
+    text-align: center;
+  }
+  .text-lg-left {
+    text-align: left;
+  }
+  .text-lg-right {
+    text-align: right;
+  }
 }
 /* ********** Site Styles ********** */
 
