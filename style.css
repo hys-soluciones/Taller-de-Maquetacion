@@ -230,7 +230,7 @@ progress::-moz-progress-bar {
   background-color: var(--first-color);
 }
 /* Estilos para la cabecera */
-.conteiner {
+.container {
   margin-left: auto;
   margin-right: auto;
   max-width: var(--max-width);
@@ -240,6 +240,9 @@ progress::-moz-progress-bar {
 }
 .none {
   display: none;
+}
+.section {
+  padding: 2rem 1rem;
 }
 .text-center {
   text-align: center;
@@ -251,6 +254,11 @@ progress::-moz-progress-bar {
   text-align: right;
 }
 @media (min-width: 1024px) {
+  .full-lg-screen {
+    /* para generar una pantalla de tamaño completo */
+    width: 100%;
+    min-height: 100vh;
+  }
   .text-lg-center {
     text-align: center;
   }
@@ -262,7 +270,10 @@ progress::-moz-progress-bar {
   }
 }
 /* ********** Site Styles ********** */
-
+/* A los articles que son hijos directos de esta section aplicales un margin-bottom: 2rem; */
+.about > article {
+  margin-bottom: 2rem;
+}
 /* Estilos para la cabecera */
 .header {
   position: fixed;
@@ -295,6 +306,16 @@ progress::-moz-progress-bar {
 @media (min-width: 768px) {
 }
 @media (min-width: 1024px) {
+  /* Para dividir en 3 columnas el acerca utilizamos grid en la clase about que tiene los 3 article del contenido  */
+  .about {
+    display: grid;
+    /* Creamos las 3 colum de un 30% */
+    grid-template-columns: repeat(3, 30%);
+    /* El 10% restante lo repartimos entre los 3 elementos*/
+    justify-content: space-between;
+    /* Centramos el contenido */
+    align-content: center;
+  }
   .header {
     position: sticky; /* Para que no tape los elementos que estan por debajo de el y cuando llege a top 0 quede fijo */
     top: 0;
