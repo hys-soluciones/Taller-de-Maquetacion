@@ -213,6 +213,9 @@ progress::-moz-progress-bar {
   font-size: 0.88rem;
 }
 /* ********** Utilities ********** */
+.bg-gray-light {
+  background-color: var(--gray-light-color);
+}
 .box-shadow-1 {
   /* Efecto de sombra */
   box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
@@ -243,6 +246,16 @@ progress::-moz-progress-bar {
 }
 .section {
   padding: 2rem 1rem;
+}
+.section-title {
+  /* Colocamos la franjas arriba t abajo del titulo */
+  border-top: thin solid var(--first-color);
+  border-bottom: thin solid var(--first-color);
+  margin: 2rem auto; /* le damos un marggin arriba y abajo de 2rem y auto a los lados con esto el contenido se centraria*/
+  padding: 0.5rem 1rem; /* El padding nos ayuda a separar el texto de los bordes de la caja , arriba y abajo de 0.5rem y a los lados de 1rem*/
+  width: 250px; /* le damos un ancho */
+  text-align: center; /* cENTRAMOS EL TEXTO */
+  color: var(--title-color); /* DEFINIMOS EL COLOR DE LETRAS */
 }
 .text-center {
   text-align: center;
@@ -302,8 +315,31 @@ progress::-moz-progress-bar {
   font-size: 2rem; /* Tamaño de la letra */
   text-decoration: none; /* le quitamos la decoracion a ese enlace */
 }
+
+.service-card {
+  margin: 1rem auto; /* auto para que se centre */
+  padding: 1rem; /* Espaciado a los 4 lados */
+  text-align: center; /* Centramos el contenido */
+}
+.service-card h3 {
+  color: var(--title-color);
+}
+.service-card svg {
+  /* le damos color a los svg y los separamos un poco de los textos */
+  margin-bottom: 1.25rem;
+  fill: var(--first-color);
+}
 /* ---Media Query para pantalla-- */
 @media (min-width: 768px) {
+  .services > .container {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    justify-content: space-between;
+    align-content: center;
+  }
+  .services .section-title {
+    grid-column: span 2;
+  }
 }
 @media (min-width: 1024px) {
   /* Para dividir en 3 columnas el acerca utilizamos grid en la clase about que tiene los 3 article del contenido  */
@@ -322,5 +358,11 @@ progress::-moz-progress-bar {
     padding: 0.5rem; /* Reducimos el padin a 0.5rem */
     height: calc(var(--header-height)- 0.5rem);
     /* Le restamos el 0.5rem que ledimos en el padding anterior */
+  }
+  .services > .container {
+    grid-template-columns: repeat(3, 30%);
+  }
+  .services .section-title {
+    grid-column: span 3;
   }
 }
