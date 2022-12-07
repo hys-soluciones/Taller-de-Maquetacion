@@ -393,6 +393,36 @@ progress::-moz-progress-bar {
   width: 100%;
   height: 100%;
 }
+/* **********PORTFOLIO MODAL************ */
+
+.portfolio-modal {
+  padding: 1rem;
+  max-width: 290px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+}
+/* Le colocamos al titulo una linea por debajo y lo separamos un poco */
+.portfolio-modal h3 {
+  border-bottom: medium solid var(--first-color);
+  padding: 0.5rem 0;
+  margin: 1rem auto;
+  color: var(--title-color);
+}
+/* Le redusco el tamaño de la letrapara que el portafolioo modal quepa en mi monitor */
+.portfolio-info p {
+  font-size: 0.75rem;
+}
+/* Organisamos las 8 etiquetas small  en filas que se generen implicitamente y en 2 columnas de 40% y 60%*/
+.portfolio-datails {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-auto-rows: 2rem;
+}
+/* Le damos color a todas las etiquetas b que estan en portfolio-datails*/
+.portfolio-datails b {
+  color: var(--first-color);
+}
 .service-card {
   margin: 1rem auto; /* auto para que se centre */
   padding: 1rem; /* Espaciado a los 4 lados */
@@ -416,7 +446,16 @@ progress::-moz-progress-bar {
   .portfolio .section-title {
     grid-column: span 2;
   }
-
+  /* Le aplicamos a portfolio modal, flex direction row para ponerlo orizontal y le aumentamos el max-width para que quepa todo el contenido */
+  .portfolio-modal {
+    max-width: 800px;
+    flex-direction: row;
+  }
+  /* Le damos un margin-left de 1 rem para separarlo un poco de la imagen y aliniamos el texto centrandolos con respecto a la imagen en el eje y*/
+  .portfolio-info {
+    margin-left: 1rem;
+    align-self: center;
+  }
   .services > .container {
     display: grid;
     grid-template-columns: repeat(2, 45%);
