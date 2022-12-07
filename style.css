@@ -183,6 +183,45 @@ p {
     background-color: transparent;
   }
 }
+/* ****Modal*** */
+.modal {
+  position: fixed; /* La posicionamos de manera fija */
+  z-index: 999; /* Alto para que este sobre culquier ventana o contenido */
+  /* Con estos 4 posicionamientos en 0 obligo a que ocupe toda la pantalla */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*  Con el display justificamos y centramos el contenido aplicando flexbox*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black-alpha-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s;
+}
+.modal-content {
+  /* Este es el div le damos position relative por que se va a posicionar el tachesito */
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.modal-close svg {
+  width: 3rem;
+  height: 3rem;
+  fill: var(--first-color);
+}
+/* Para hacer que se habra la ventana modal */
+/* Con este selector avanzado lo que hace es buscar toos los elementos que tengan en la clase modal un id y que comiencen con la palabra trabajo y que en ese momento este el target de esa target*/
+.modal[id|="trabajo"]:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* ***ProgressBar*** */
 progress {
   /* le damos tamaños a las barras progress */
@@ -341,7 +380,7 @@ progress::-moz-progress-bar {
   color: var(--white-color);
   opacity: 0;
   pointer-events: nome; /* Desactivamos esta propiedad */
-  transition: all 0.5 ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .portfolio-card:hover .portfolio-card-info {
   /* Activamos la propiedad, quitandole la opasidad  */
@@ -369,6 +408,15 @@ progress::-moz-progress-bar {
 }
 /* ---Media Query para pantalla-- */
 @media (min-width: 768px) {
+  /* La clase portafolio tiene un hijo directo con la clase container a ese aplicale grid .. */
+  .portfolio > .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .portfolio .section-title {
+    grid-column: span 2;
+  }
+
   .services > .container {
     display: grid;
     grid-template-columns: repeat(2, 45%);
@@ -380,6 +428,16 @@ progress::-moz-progress-bar {
   }
 }
 @media (min-width: 1024px) {
+  /* La clase portafolio tiene un hijo 
+directo con la clase container a ese 
+aplicale grid .. */
+  .portfolio > .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .portfolio .section-title {
+    grid-column: span 3;
+  }
+
   /* Para dividir en 3 columnas el acerca utilizamos grid en la clase about que tiene los 3 article del contenido  */
   .about {
     display: grid;
