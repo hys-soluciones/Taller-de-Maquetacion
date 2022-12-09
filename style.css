@@ -92,6 +92,62 @@ p {
 }
 /* ********** Componentes ********** */
 
+/* ********** Carrusel ********** */
+.carousel {
+  margin: 2rem auto;
+  padding: 2rem 0;
+  max-width: 800px;
+  text-align: center;
+  overflow-x: hidden; /* Para ocultar los slide que no estan checkeds */
+  background-color: var(--carousel-bg-color);
+}
+
+/* Efecto de animacion */
+.carousel .slides {
+  padding-left: 0; /* Para quitarle el padding que trae el ul  por defecto y poder centrar el texto */
+  /* Por cada slide que tenga el carrusel hay que agregarle un 100% al ancho */
+  width: 400%;
+  display: flex;
+  list-style: none; /* le quitamos la bulet a las li */
+  transition: transform 0.5s ease-in-out; /* Este es el efecto de aceleracion o movimiento */
+}
+/* Ocultamos los chesbox */
+.carousel input {
+  display: none;
+}
+.carousel label {
+  border: medium solid var(--gray-dark-color); /* con border formamos esos controles */
+  border-radius: 50%; /* Los redondiamos */
+  margin: 0 0.5rem; /*  los separamos un poco */
+  display: inline-block; /* Para que tengan caracteristicas en bloque por que trabajan en linea */
+  /* Le damos un ancho y un alto porque estan basias */
+  width: 0.75rem;
+  height: 0.75rem;
+  cursor: pointer; /* Para que se vean interactivos */
+}
+/* Cuando el input este checked (~)muebe el hermano que tienes al lado */
+#slide-1:checked ~ .slides {
+  transform: translateX(0%);
+}
+#slide-2:checked ~ .slides {
+  transform: translateX(-25%);
+  /* devuelvete un -25% */
+}
+#slide-3:checked ~ .slides {
+  transform: translateX(-50%);
+  /* devuelvete un -50% */
+}
+#slide-4:checked ~ .slides {
+  transform: translateX(-75%);
+  /* devuelvete un -75% */
+}
+/* este codigo para derle el color de fondo a las rueditas o slide cuando esten checked */
+#slide-1:checked ~ .slides-nav label#dot-1,
+#slide-2:checked ~ .slides-nav label#dot-2,
+#slide-3:checked ~ .slides-nav label#dot-3,
+#slide-4:checked ~ .slides-nav label#dot-4 {
+  background-color: var(--gray-dark-color);
+}
 /* *****HERO_IMAGE**** */
 .hero-image {
   background-image: var(
@@ -252,6 +308,12 @@ progress::-moz-progress-bar {
   font-size: 0.88rem;
 }
 /* ********** Utilities ********** */
+.avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
 .bg-gray-light {
   background-color: var(--gray-light-color);
 }
@@ -295,6 +357,9 @@ progress::-moz-progress-bar {
   width: 250px; /* le damos un ancho */
   text-align: center; /* cENTRAMOS EL TEXTO */
   color: var(--title-color); /* DEFINIMOS EL COLOR DE LETRAS */
+}
+.text-first-color {
+  color: var(--first-color);
 }
 .text-center {
   text-align: center;
