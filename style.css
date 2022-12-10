@@ -407,6 +407,28 @@ progress::-moz-progress-bar {
 .about > article {
   margin-bottom: 2rem;
 }
+/* Le damos estilos a la seccion de contactos */
+.contact-card {
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 100%;
+  height: 144px;
+  display: flex; /* Para alinear toodos los elementos dentro de la targeta */
+  flex-direction: column;
+  justify-content: space-around; /* considerando las orillas */
+  align-items: center;
+}
+/* Para cambiarle el color al svg de social media */
+.contact-card > svg {
+  /* Para que todos los iconotos tengan un mismo tamaño le domos un W - H. */
+  width: 2rem;
+  height: 2rem;
+  fill: var(--first-color);
+}
+/* Para que los iconitos suban un poquito a su titulo el contenido*/
+.contact-card > small {
+  margin-top: -1rem;
+}
 /* Estilos para la cabecera */
 .header {
   position: fixed;
@@ -517,8 +539,23 @@ progress::-moz-progress-bar {
   margin-bottom: 1.25rem;
   fill: var(--first-color);
 }
+/* Atodos los enlaces que estan en la clase social-media le quitamos el tex decoration*/
 /* ---Media Query para pantalla-- */
+.social-media a {
+  padding: 0 0.4rem;
+  text-decoration: none;
+}
+.social-media svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 @media (min-width: 768px) {
+  /* Hacemos responsibas las targetitas */
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: space-between;
+  }
   /* La clase portafolio tiene un hijo directo con la clase container a ese aplicale grid .. */
   .portfolio > .container {
     display: grid;
@@ -548,6 +585,9 @@ progress::-moz-progress-bar {
   }
 }
 @media (min-width: 1024px) {
+  .contact-cards {
+    grid-template-columns: repeat(4, 24%);
+  }
   /* La clase portafolio tiene un hijo 
 directo con la clase container a ese 
 aplicale grid .. */
