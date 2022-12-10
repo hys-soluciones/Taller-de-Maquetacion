@@ -93,6 +93,21 @@ p {
 /* ********** Componentes ********** */
 
 /* ********** Carrusel ********** */
+/* animacion automatica */
+@keyframes carousel-slide {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+}
 .carousel {
   margin: 2rem auto;
   padding: 2rem 0;
@@ -110,6 +125,7 @@ p {
   display: flex;
   list-style: none; /* le quitamos la bulet a las li */
   transition: transform 0.5s ease-in-out; /* Este es el efecto de aceleracion o movimiento */
+  animation: carousel-slide 12s ease-in-out 3s; /* Este es el efecto de animacion automatica */
 }
 /* Ocultamos los chesbox */
 .carousel input {
