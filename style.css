@@ -503,6 +503,14 @@ progress::-moz-progress-bar {
 .contact-card > small {
   margin-top: -1rem;
 }
+/* Estilos del footer */
+.footer {
+  margin-bottom: var(--header-height);
+  padding: 0.5rem;
+  text-align: center;
+  color: var(--white-color);
+  background-color: var(--third-color);
+}
 /* Estilos para la cabecera */
 .header {
   position: fixed;
@@ -681,6 +689,9 @@ aplicale grid .. */
     justify-content: space-between;
     /* Centramos el contenido */
     align-content: center;
+  }
+  .footer {
+    margin-bottom: 0;
   }
   .header {
     position: sticky; /* Para que no tape los elementos que estan por debajo de el y cuando llege a top 0 quede fijo */
