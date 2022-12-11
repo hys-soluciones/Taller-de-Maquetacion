@@ -164,6 +164,80 @@ p {
 #slide-4:checked ~ .slides-nav label#dot-4 {
   background-color: var(--gray-dark-color);
 }
+/* ******Contact Form****** */
+.contact-form {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 800px;
+}
+/*  para todos los elementos que sean hijos directos de contact-form sin importar lo que sea aplicales lo siguiente */
+.contact-form > * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block; /* Para que trabajen en bloque uno debajo del otro */
+  width: 100%;
+}
+.contact-form input,
+.contact-form textarea {
+  font-size: 0.85rem;
+  font-family: var(--font);
+}
+.contact-form input {
+  border: none;
+  border-bottom: thin solid var(--gray-dark-color);
+  padding-left: 0;
+}
+.contact-form textarea {
+  border: thin solid var(--gray-dark-color);
+  resize: none; /* Para eliminar el triangulito de expancion del area */
+}
+.contact-form input[type="submit"] {
+  margin-top: 0;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.contact-form input[type="submit"]:hover {
+  opacity: 0.75;
+}
+.contact-form *::placeholder {
+  color: var(--gray-dark-color);
+}
+.contact-form-response {
+  padding: 1rem;
+  width: 400px;
+  text-align: center;
+  background-color: var(--gray-color);
+}
+.contact-form-response svg {
+  margin-top: 2rem;
+  width: 4rem;
+  height: 4rem;
+  fill: var(--first-color);
+}
+/*  Al elemento que tenga la clase modal y que tenga el id=gracias cuando sea target de la pagina aplicale */
+.modal#gracias:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (min-width: 1024px) {
+  .contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem; /* Para separar los elementos */
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+  }
+  .contact-form textarea,
+  .contact-form-loader {
+    grid-column: span 2;
+  }
+  .contact-form input[type="submit"] {
+    margin-left: 0;
+  }
+}
+
 /* *****HERO_IMAGE**** */
 .hero-image {
   background-image: var(
